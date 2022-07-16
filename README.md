@@ -1,12 +1,19 @@
 # KaliHelper
+Work on: *Kali Linux*
 
-First, you need to install all dependencies:
+First, you need to cd:
+
+```bash
+cd KaliHelper
+```
+
+Then, you need to install all dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Then you can run the KaliHelper
+And now you can run the KaliHelper
 
 ``` bash
 python KaliHelper.py
