@@ -1,0 +1,6 @@
+fade
+colorama
+pathlib
+netifaces
+urllib3
+gdown
