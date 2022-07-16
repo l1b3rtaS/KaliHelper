@@ -1,5 +1,4 @@
 # KaliHelper
-Usage:
 
 First, you need to install all dependencies:
 
@@ -12,3 +11,4 @@ Then you can run the KaliHelper
 ``` bash
 python KaliHelper.py
 ```
+All other instructions are written in the program
