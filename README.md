@@ -1,5 +1,5 @@
 # KaliHelper
-Work on: *Kali Linux*
+Work on: *Kali Linux* , other platforms in test
 
 First, you need to cd:
 
