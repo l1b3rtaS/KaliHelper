@@ -4,3 +4,4 @@ pathlib
 netifaces
 urllib3
 gdown
+pyTelegramBotAPI
