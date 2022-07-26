@@ -8,7 +8,9 @@ from random import randint
 import urllib.request
 import socket
 import threading
+import telebot
 from color import *
+from token1 import *
 main = ("""
 ██╗  ██╗ █████╗ ██╗     ██╗    ██╗  ██╗███████╗██╗     ██████╗ ███████╗██████╗ 
 ██║ ██╔╝██╔══██╗██║     ██║    ██║  ██║██╔════╝██║     ██╔══██╗██╔════╝██╔══██╗
@@ -16,7 +18,7 @@ main = ("""
 ██╔═██╗ ██╔══██║██║     ██║    ██╔══██║██╔══╝  ██║     ██╔═══╝ ██╔══╝  ██╔══██╗
 ██║  ██╗██║  ██║███████╗██║    ██║  ██║███████╗███████╗██║     ███████╗██║  ██║
 ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝    ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝   
-                                               By l1b3rtaS   V0.3
+                                               By l1b3rtaS   V0.4
 					MENU
 	1. Update and upgrade all apt library (required to use other functions)
 	2. Best Tools from GitHub
@@ -25,6 +27,7 @@ main = ("""
 	5. Local SSH start
 	6. Neofetch
 	7. 2vol.msg (P2P Chatting)
+	8. Image-saver bot (TG)
 
 	99. Exit
 
@@ -67,6 +70,7 @@ popru = ("""
 	6. qBittorrent
 	7. mat2 (Metadata-Cleaner)
 	8. Discord
+	9. Steam
 
 	99. Exit
 
@@ -105,6 +109,26 @@ vm = ("""
 
 """)
 faded_vm = fade.greenblue(vm)
+psb = ("""
+██████╗ ██╗ ██████╗████████╗██╗   ██╗██████╗ ███████╗    ███████╗ █████╗ ██╗   ██╗███████╗██████╗     ██████╗  ██████╗ ████████╗
+██╔══██╗██║██╔════╝╚══██╔══╝██║   ██║██╔══██╗██╔════╝    ██╔════╝██╔══██╗██║   ██║██╔════╝██╔══██╗    ██╔══██╗██╔═══██╗╚══██╔══╝
+██████╔╝██║██║        ██║   ██║   ██║██████╔╝█████╗      ███████╗███████║██║   ██║█████╗  ██████╔╝    ██████╔╝██║   ██║   ██║   
+██╔═══╝ ██║██║        ██║   ██║   ██║██╔══██╗██╔══╝      ╚════██║██╔══██║╚██╗ ██╔╝██╔══╝  ██╔══██╗    ██╔══██╗██║   ██║   ██║   
+██║     ██║╚██████╗   ██║   ╚██████╔╝██║  ██║███████╗    ███████║██║  ██║ ╚████╔╝ ███████╗██║  ██║    ██████╔╝╚██████╔╝   ██║   
+╚═╝     ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝    ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝    ╚═════╝  ╚═════╝    ╚═╝   
+				Telegram Bot that saves sent photos to your PC
+""")
+faded_psb = fade.pinkred(psb)
+#EMOJI
+ohfuck = Fore.BLACK + Back.WHITE + """凸(▼ｪ▼ﾒ)""" + Style.RESET_ALL
+angry = Fore.BLACK + Back.WHITE + """(╬◣益◢)""" + Style.RESET_ALL
+wow = Fore.BLACK + Back.WHITE + """╚╚|░☀▄☀░|╝╝""" + Style.RESET_ALL
+um = Fore.BLACK + Back.WHITE + """(°ʖ°)""" + Style.RESET_ALL
+damn = Fore.BLACK + Back.WHITE + """【•】_【•】""" + Style.RESET_ALL
+uh = Fore.BLACK + Back.WHITE + """./((-＿-メ))\.""" + Style.RESET_ALL
+idk = Fore.BLACK + Back.WHITE + """¯\_( ° ʖ °͠)_/¯""" + Style.RESET_ALL
+sad = Fore.BLACK + Back.WHITE + """੨( ･᷄ ︵･᷅ )ｼ""" + Style.RESET_ALL
+dance = Fore.BLACK + Back.WHITE + """((┌|o^▽^o|┘))♪""" + Style.RESET_ALL
 def ip():
     return urllib.request.urlopen('http://ip-address.ru/show').read().decode('utf-8')
 a = 1
@@ -299,6 +323,23 @@ while a == 1:
 					"""
 					 + Fore.WHITE)
 				input(Fore.RED + "Press enter for continue")
+			if choose_programs == "9":
+				print (Fore.RED + """
+					Steam Download Started
+					""" + Fore.WHITE)
+				os.system('sudo wget -O steam.deb "https://cdn.akamai.steamstatic.com/client/installer/steam.deb"')
+				os.system("sudo dpkg -i steam.deb")
+				os.system("rm steam.deb")
+				print (Fore.RED + """
+					Steam Download completed
+
+					To add a shortcut, go to the Kali menu (top right), 
+					find the desired program in the search, 
+					right-click on it and select "Add to desktop"
+					for uninstall use command "apt remove <name>"
+					"""
+					 + Fore.WHITE)
+				input(Fore.RED + "Press enter for continue" + Fore.WHITE)
 			if choose_programs == "99":
 				c = 2
 	if choose == "4":
@@ -360,6 +401,7 @@ while a == 1:
 					print ("				" + ipint)
 					number = number + 1
 					attemps = attemps + 1
+				print(Fore.WHITE)
 				UDP_MAX_SIZE = 65535
 				lip = input()
 				def listen(host: str = lip , port: int = 1337):
@@ -375,15 +417,15 @@ while a == 1:
 				        if not msg:
 				            continue
 				        client_id = addr[1]
-				        if msg.decode('ascii') == '__join':
+				        if msg.decode('utf-8') == '__join':
 				            print(f'SERVER> Client {client_id} joined chat') 
 				            continue
-				        print('\r\r' + msg.decode('ascii'))
-				        msg = f'{msg.decode("ascii")}'
+				        print('\r\r' + msg.decode('utf-8'))
+				        msg = f'{msg.decode("utf-8")}'
 				        for member in members:
 				            if member == addr:
 				                continue
-				            server.sendto(msg.encode('ascii') , member)
+				            server.sendto(msg.encode('utf-8') , member)
 				if __name__ == '__main__':
 					os.system("clear")
 					print(faded_vm)
@@ -403,27 +445,82 @@ If you have [Errno 98] Address already in use , exit Kali Helper and send comman
 				nickname = nccolor + nick + Fore.WHITE
 				UPD_MAX_SIZE = 65535
 				print (Fore.MAGENTA + """		Enter hoster IP , started at 192.168
-			""")
+			""" + Fore.WHITE)
 				lipu = input()
 				def listen(server: socket.socket):
 				    while True:
 				        msg = server.recv(UPD_MAX_SIZE)
-				        print('\r\r' + msg.decode('ascii') + '\n' + f'you: ' , end='')
+				        print('\r\r' + msg.decode('utf-8') + '\n' + f'you: ' , end='')
 				def connect(host: str = lipu , port: int = 1337):
 				    server = socket.socket(socket.AF_INET , socket.SOCK_DGRAM)
 				    server.connect((host,port))
 				    threading.Thread(target=listen, args=(server,), daemon=True).start()
-				    server.send('__join'.encode('ascii'))
+				    server.send('__join'.encode('utf-8'))
 				    while True:
+				        sw = 1
 				        msg1 = input(f'you: ')
-				        msg = (nickname +  " " + msg1) 
-				        server.send(msg.encode('ascii'))
+				        if msg1 == ".emjlist":
+				        	print (Fore.CYAN + """To send a emoji send the command in a separate message 
+(Emoji is visible only to other members)
+Emoji List:
+				        		""")
+				        	print(Fore.CYAN + ".ohfuck  -  " + ohfuck)
+				        	print(Fore.CYAN + ".angry  -  " + angry)
+				        	print(Fore.CYAN + ".wow  -  " + wow)
+				        	print(Fore.CYAN + ".um  -  " + um)
+				        	print(Fore.CYAN + ".damn  -  " + damn)
+				        	print(Fore.CYAN + ".uh  -  " + uh)
+				        	print(Fore.CYAN + ".idk  -  " + idk)
+				        	print(Fore.CYAN + ".sad  -  " + sad)
+				        	print(Fore.CYAN + ".dance  -  " + dance + Fore.WHITE)
+				        	sw = 2
+				        if msg1 == ".ohfuck":
+				        	msg = (nickname +  " " + ohfuck) 
+					        server.send(msg.encode('utf-8'))
+					        sw = 2	
+				        if msg1 == ".angry":
+				        	msg = (nickname +  " " + angry) 
+				        	server.send(msg.encode('utf-8'))
+				        	sw = 2
+				        if msg1 == ".wow":
+				        	msg = (nickname +  " " + wow) 
+				        	server.send(msg.encode('utf-8'))
+				        	sw = 2
+				        if msg1 == ".um":
+				        	msg = (nickname +  " " + um) 
+				        	server.send(msg.encode('utf-8'))
+				        	sw = 2
+				        if msg1 == ".damn":
+				        	msg = (nickname +  " " + damn) 
+				        	server.send(msg.encode('utf-8'))
+				        	sw = 2
+				        if msg1 == ".uh":
+				        	msg = (nickname +  " " + uh) 
+				        	server.send(msg.encode('utf-8'))
+				        	sw = 2
+				        if msg1 == ".idk":
+				        	msg = (nickname +  " " + idk) 
+				        	server.send(msg.encode('utf-8'))
+				        	sw = 2
+				        if msg1 == ".sad":
+				        	msg = (nickname +  " " + sad) 
+				        	server.send(msg.encode('utf-8'))
+				        	sw = 2
+				        if msg1 == ".dance":
+				        	msg = (nickname +  " " + dance) 
+				        	server.send(msg.encode('utf-8'))
+				        	sw = 2
+				        if sw == 1:
+					        msg = (nickname +  " " + msg1) 
+					        server.send(msg.encode('utf-8'))			    
 				if __name__ == '__main__':
 				    os.system("clear")
 				    print(faded_vm)
-				    print(f"""            {nickname + Fore.CYAN} , welcome to chat , 
+				    print(f"""
+		{nickname + Fore.CYAN} , welcome to chat  
 	your nick and color visible for other members
-	For exit press Ctrl+C""" + Fore.WHITE)
+		See list of emoji - .emjlist
+		For exit press Ctrl+C""" + Fore.WHITE)
 				    connect()
 			if choose_nct == "3":
 				e = 1
@@ -444,53 +541,112 @@ If you have [Errno 98] Address already in use , exit Kali Helper and send comman
 """ + Fore.WHITE)
 					choose_ncf = input()
 					if choose_ncf == "1":
-						print(Fore.CYAN + """
-	Enter new nickname
-""" + Fore.WHITE)
-						new_nick1 = input()
-						nick_file = open("nick.txt", "w") 
-						nick_file.write(str(new_nick1))
-					if choose_ncf == "2":
-						os.system("clear")
-						print(faded_vm)			
-						print(Fore.CYAN + """
-	Choose new nickname color
-""")
-						print("""
-	1. """ + Fore.BLACK + """Black""" + Fore.CYAN + """
-	2. """ + Fore.RED + """Red""" + Fore.CYAN + """
-	3. """ + Fore.GREEN + """Green""" + Fore.CYAN + """
-	4. """ + Fore.YELLOW + """Yellow""" + Fore.CYAN + """
-	5. """ + Fore.BLUE + """Blue""" + Fore.CYAN + """
-	6. """ + Fore.MAGENTA + """Purple""" + Fore.CYAN + """
-	7. """ + Fore.CYAN + """Cyan""" + Fore.CYAN + """
-	8. """ + Fore.WHITE + """White""" + Fore.CYAN + """
+						h = 1
+						while h == 1:
+							os.system("clear")
+							print(faded_vm)	
+							print(Fore.CYAN + """
+		1. Enter new nickname
 
-	99. Exit
-""")
-						new_color = input()
-						if new_color == "1":
-							new_nick_color = "color = Fore.BLACK"
-						if new_color == "2":
-							new_nick_color = "color = Fore.RED"
-						if new_color == "3":
-							new_nick_color = "color = Fore.GREEN"
-						if new_color == "4":
-							new_nick_color = "color = Fore.YELLOW"
-						if new_color == "5":
-							new_nick_color = "color = Fore.BLUE"
-						if new_color == "6":
-							new_nick_color = "color = Fore.MAGENTA"
-						if new_color == "7":
-							new_nick_color = "color = Fore.CYAN"
-						if new_color == "8":
-							new_nick_color = "color = Fore.WHITE"
-						color_file = open("color.py", "w") 
-						color_file.write("from colorama import Fore, Back, Style \n" + new_nick_color)				
+		99. Exit
+	""" + Fore.WHITE)
+							newnickc = input()
+							if newnickc == "1":
+								print(Fore.CYAN + """Type your new nickname
+									""" + Fore.WHITE)
+								new_nick1 = input()
+								nick_file = open("nick.txt", "w") 
+								nick_file.write(str(new_nick1))
+							if newnickc == "99":
+								h = 2
+					if choose_ncf == "2":
+						g = 1
+						while g == 1:
+							os.system("clear")
+							print(faded_vm)			
+							print(Fore.CYAN + """
+		Choose new nickname color
+	""")
+							print("""
+		1. """ + Fore.BLACK + """Black""" + Fore.CYAN + """
+		2. """ + Fore.RED + """Red""" + Fore.CYAN + """
+		3. """ + Fore.GREEN + """Green""" + Fore.CYAN + """
+		4. """ + Fore.YELLOW + """Yellow""" + Fore.CYAN + """
+		5. """ + Fore.BLUE + """Blue""" + Fore.CYAN + """
+		6. """ + Fore.MAGENTA + """Purple""" + Fore.CYAN + """
+		7. """ + Fore.CYAN + """Cyan""" + Fore.CYAN + """
+		8. """ + Fore.WHITE + """White""" + Fore.CYAN + """
+
+		99. Exit
+	""")
+							new_color = input()
+							color_file = open("color.py", "w") 
+							if new_color == "1":
+								color_file.write("from colorama import Fore, Back, Style \n" + "color = Fore.BLACK")
+							if new_color == "2":
+								color_file.write("from colorama import Fore, Back, Style \n" + "color = Fore.RED")
+							if new_color == "3":
+								color_file.write("from colorama import Fore, Back, Style \n" + "color = Fore.GREEN")
+							if new_color == "4":
+								color_file.write("from colorama import Fore, Back, Style \n" + "color = Fore.YELLOW")
+							if new_color == "5":
+								color_file.write("from colorama import Fore, Back, Style \n" + "color = Fore.BLUE")
+							if new_color == "6":
+								color_file.write("from colorama import Fore, Back, Style \n" + "color = Fore.MAGENTA")
+							if new_color == "7":
+								color_file.write("from colorama import Fore, Back, Style \n" + "color = Fore.CYAN")
+							if new_color == "8":
+								color_file.write("from colorama import Fore, Back, Style \n" + "color = Fore.WHITE")
+							if new_color == "99":
+								g = 2	
 					if choose_ncf == "99":
 						e = 2
 			if choose_nct == "99":
 				d = 2
+	if choose == "8":
+		m = 1
+		while m == 1:	
+			os.system("clear")
+			print(faded_psb)
+			if TOKEN1 == "None":
+				ts = Fore.WHITE + "[" + Fore.RED + "TOKEN NOT SET" + Fore.WHITE + "]"
+			else:
+				ts = Fore.WHITE + "[" + Fore.GREEN + "TOKEN SET" + Fore.WHITE + "]"
+			print(Style.BRIGHT + Fore.MAGENTA + "	If the bot does not start, check the validity of the token\n\n" + "	1. Start Bot\n""" + "	2. Set token " + Style.RESET_ALL + ts + "\n\n" + Style.BRIGHT + Fore.MAGENTA + "	99. Exit")
+			choose_psb = input()
+			if choose_psb == "1":
+				bot = telebot.TeleBot(TOKEN1)
+				@bot.message_handler(commands=['start'])
+				def send_welcome(message):
+				    userid = int(message.from_user.id)
+				    usrinfo = bot.get_chat_member(userid, userid).user
+				    bot.send_message(message.chat.id, "Hi, " + usrinfo.first_name + "!\nSend me any photo and I will save it on your (host) PC")
+				@bot.message_handler(content_types=['photo'])
+				def photo(message):
+				    username = message.from_user.username
+				    chat_id = message.chat.id
+				    fileID = message.photo[-1].file_id
+				    file_info = bot.get_file(fileID)
+				    downloaded_file = bot.download_file(file_info.file_path)
+				    bot.send_message(chat_id, "Saved!")
+				    psbname = str(randint(1 , 10000000))
+				    print(f"Picture #{psbname} saved and copied to KaliHelper/SAVED_FILES")
+				    with open(psbname , 'wb') as new_file:
+				        new_file.write(downloaded_file)
+				        td = os. getcwd()
+				        folder = '"' + td + '/SAVED_FILES"'
+				        os.system('mv ' + psbname + ' ' + folder)
+				os.system("clear")
+				print(faded_psb)
+				print(Style.BRIGHT + Fore.MAGENTA + "Bot Started")
+				bot.polling()
+			if choose_psb == "2":
+				print(Style.BRIGHT + Fore.MAGENTA + """	Token will only be set after restarting Kali Helper
+			    Enter new Token""" + Style.RESET_ALL)
+				newtoken = input()
+				token_file = open("token1.py", "w") 
+				token_file.write(f'TOKEN1 = "{newtoken}"')
+			if choose_psb == "99":
+				m = 2
 	if choose == "99":
 		a = 2
-
