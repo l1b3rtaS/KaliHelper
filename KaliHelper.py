@@ -16,7 +16,7 @@ main = ("""
 ██╔═██╗ ██╔══██║██║     ██║    ██╔══██║██╔══╝  ██║     ██╔═══╝ ██╔══╝  ██╔══██╗
 ██║  ██╗██║  ██║███████╗██║    ██║  ██║███████╗███████╗██║     ███████╗██║  ██║
 ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝    ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝   
-                                               By l1b3rtaS
+                                               By l1b3rtaS   V0.3
 					MENU
 	1. Update and upgrade all apt library (required to use other functions)
 	2. Best Tools from GitHub
