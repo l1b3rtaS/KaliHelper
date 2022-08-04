@@ -218,8 +218,9 @@ while a == 1:
 				print (Fore.RED + """
 					Sublime Text Download Started
 					""" + Fore.WHITE)
-				os.system("wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg")
-				os.system("sudo apt-get install sublime-text")
+				os.system('sudo wget -O sublimetext.deb "https://download.sublimetext.com/sublime-text_build-3211_amd64.deb"')
+				os.system("sudo dpkg -i sublimetext.deb")
+				os.system("sudo rm sublimetext.deb")
 				print (Fore.RED + """
 					Sublime Text Download completed
 
@@ -312,7 +313,7 @@ while a == 1:
 					""" + Fore.WHITE)
 				os.system('sudo wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"')
 				os.system("sudo dpkg -i discord.deb")
-				os.system("rm discord.deb")
+				os.system("sudo rm discord.deb")
 				print (Fore.RED + """
 					Discord Download completed
 
