@@ -1,11 +1,11 @@
 # KaliHelper
 Work on: *Kali Linux* , other platforms in test
 
-Last 0.4 Version (26.07.2022):
+Last 0.4 Version (21.08.2022):
 1. Fixed a lot of bugs
-2. Added emoji to p2p chat
+2. Added telegram bot to save files
 3. Added new programs for installation
-4. Added telegram bot to save pictures
+4. Added .cap bruteforcer
 
 First, you need to cd:
 
