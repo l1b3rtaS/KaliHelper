@@ -5,3 +5,4 @@ netifaces
 urllib3
 gdown
 pyTelegramBotAPI
+pyinstaller
